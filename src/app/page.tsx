@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { mockFiles, mockFolders } from "../lib/mock-data";
 import { Upload, ChevronRight } from "lucide-react";
 import { Button } from "~/components/ui/button";
@@ -20,22 +20,22 @@ export default function GoogleDriveClone() {
     setCurrentFolder(folderId);
   };
 
-  const getBreadcrumbs = () => {
+  const breadcrumbs = useMemo(() => {
     const breadcrumbs = [];
     let currentId = currentFolder;
 
-    while (currentId !== null) {
-      const folder = mockFiles.find((file) => file.id === currentId);
+    while (currentId !== "root") {
+      const folder = mockFolders.find((file) => file.id === currentId);
       if (folder) {
         breadcrumbs.unshift(folder);
-        currentId = folder.parent;
+        currentId = folder.parent ?? "root";
       } else {
         break;
       }
     }
 
     return breadcrumbs;
-  };
+  }, [currentFolder]);
 
   const handleUpload = () => {
     alert("Upload functionality would be implemented here");
@@ -53,7 +53,7 @@ export default function GoogleDriveClone() {
             >
               My Drive
             </Button>
-            {getBreadcrumbs().map((folder, index) => (
+            {breadcrumbs.map((folder) => (
               <div key={folder.id} className="flex items-center">
                 <ChevronRight className="mx-2 text-gray-500" size={16} />
                 <Button

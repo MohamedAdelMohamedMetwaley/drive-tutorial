@@ -28,7 +28,7 @@ export const mockFiles: File[] = [
     name: "Resume.pdf",
     type: "file",
     url: "/files/resume.pdf",
-    parent: "1",
+    parent: "root",
     size: "1.2 MB",
   },
   {
