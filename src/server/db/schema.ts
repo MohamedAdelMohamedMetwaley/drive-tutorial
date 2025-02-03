@@ -23,6 +23,8 @@ export const files_table = createTable("files_table", {
     ]
 })
 
+export type DB_FileType = typeof files_table.$inferSelect;
+
 export const folders_table = createTable("folders_table", {
     id: int("id").primaryKey().autoincrement(),
     name: text("name").notNull(),
@@ -32,3 +34,5 @@ export const folders_table = createTable("folders_table", {
         index("parent_index").on(t.parent),
     ]
 })
+
+export type DB_FolderType = typeof folders_table.$inferSelect;
