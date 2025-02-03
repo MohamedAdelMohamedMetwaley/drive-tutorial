@@ -10,6 +10,6 @@
 
 ## Notes
 
-- [ ] change foldersr to link components, ermove all client state
+- [x] change folders to link components, remove all client state
 - [ ] clean up the database and data fetching patterns
 - [ ] real homepage
