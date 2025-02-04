@@ -6,6 +6,6 @@
 - [x] Move folder open state to URL
 - [x] Add auth
 - [x] Add file uploading
-- [ ] add analytics
+- [x] add analytics
 - [ ] Delete files button
 - [ ] Real homepage + onboarding
