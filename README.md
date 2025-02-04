@@ -10,7 +10,8 @@
 
 ## Notes
 
-- [ ] real homepage
-- [ ] Upload files to the right folder
+- [x] add "owenership" to files and folders
+- [x] Upload files to the right folder
 - [ ] Delete files button
 - [ ] allow files that aren't images to be uploaded
+- [ ] real homepage

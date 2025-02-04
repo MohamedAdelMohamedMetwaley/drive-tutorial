@@ -32,16 +32,24 @@ export const QUERIES = {
             .where(eq(foldersSchema.parent, folderId));
     },
 
+    getFolderById: async function(folderId: number) {
+        const folder = await db
+            .select()
+            .from(foldersSchema)
+            .where(eq(foldersSchema.id, folderId));
+        return folder[0];
+    },
+
     getFiles: function(folderId: number) {
         return db
             .select()
             .from(filesSchema)
             .where(eq(filesSchema.parent, folderId));
-    }
+    },
 }
 
 export const MUTATIONS = {
-    createFile: async function (input: {
+    createFile: async function(input: {
         file: {
             name: string,
             size: number,
@@ -52,7 +60,7 @@ export const MUTATIONS = {
     }) {
         return await db.insert(filesSchema).values({
             ...input.file,
-            parent: input.file.parent,
+            ownerId: input.userId,
         });
     }
 }
