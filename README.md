@@ -10,6 +10,8 @@
 - [x] Delete files button
 - [x] Real homepage + onboarding
 
+## Homework
+
 - [ ] add delete for folders
 
 # Fetch all of the folders that have it as a parent, adn their children

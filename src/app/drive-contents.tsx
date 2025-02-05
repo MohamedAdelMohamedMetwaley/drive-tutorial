@@ -29,8 +29,7 @@ export default function DriveContents(props: {
             >
               My Drive
             </Link>
-            {props.parents.map((folder) =>
-              folder.name === "Root" ? null : (
+            {props.parents.slice(1).map((folder) =>
                 <div key={folder.id} className="flex items-center">
                   <ChevronRight className="mx-2 text-gray-500" size={16} />
                   <Link
@@ -40,7 +39,6 @@ export default function DriveContents(props: {
                     {folder.name}
                   </Link>
                 </div>
-              ),
             )}
           </div>
           <div>
