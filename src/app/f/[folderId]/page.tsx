@@ -1,5 +1,6 @@
-import DriveContents from "../../drive-contents";
-import { QUERIES } from "~/server/db/queries";
+import { Suspense } from "react";
+import DriveContentsLoader from "./DriveContentsLoader";
+import PagePlaceholder from "./PagePlaceholder";
 
 export default async function GoogleDriveClone(props: { params: Promise<{ folderId: string }> }) {
     const params = await props.params;
@@ -8,11 +9,11 @@ export default async function GoogleDriveClone(props: { params: Promise<{ folder
         return <div>Invalid folder ID</div>
     }
 
-    const [files, folders, parents] = await Promise.all([
-        QUERIES.getFiles(parsedFolderId),
-        QUERIES.getFolders(parsedFolderId),
-        QUERIES.getAllParentsForFolder(parsedFolderId),
-    ]);
-
-    return <DriveContents files={files} folders={folders} parents={parents} currentFolderId={parsedFolderId} />
+    return <div className="min-h-screen bg-gray-900 p-8 text-gray-100">
+        <div className="mx-auto max-w-6xl">
+            <Suspense fallback={<PagePlaceholder />}>
+                <DriveContentsLoader parsedFolderId={parsedFolderId} />
+            </Suspense>
+        </div>
+    </div>
 }

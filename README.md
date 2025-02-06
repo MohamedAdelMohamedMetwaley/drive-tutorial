@@ -12,8 +12,22 @@
 
 ## Homework
 
-- [ ] add delete for folders
+### Add folder deletion
 
-# Fetch all of the folders that have it as a parent, adn their children
+Fetch all of the folders that have it as a parent, and their children
 
-- [ ] fix file types in the UI
+### Folder creation
+
+Make a server action that takes a folder name and folderId and creates a new folder (don't forget to set the ownerId).
+
+### Access control
+
+Check if user is the owner before showing the folder page.
+
+### Make a file view page
+
+### Toasts
+
+### Gray out a row while it's being deleted
+
+### Fix file types in the UI
