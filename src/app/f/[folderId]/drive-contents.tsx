@@ -15,7 +15,7 @@ export default function DriveContents(props: {
 
     const currentFolderId = props.currentFolderId;
 
-    const { files, folders, parents, isLoading, error, revalidate, isLoadingFile } = useCache(currentFolderId);
+    const { files, folders, parents, isLoading, error, revalidate } = useCache(currentFolderId);
 
     if (error) {
         return <div>Failed to load folder contents</div>
